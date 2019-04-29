@@ -1,0 +1,31 @@
+{
+  "name": "nikolaus-roman",
+  "version": "1.0.3",
+  "proxy": "http://localhost:5000",
+  "private": true,
+  "dependencies": {
+    "concurrently": "^4.1.0",
+    "cors": "^2.8.5",
+    "prop-types": "^15.6.1",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5",
+    "react-redux": "^7.0.2",
+    "react-scripts": "2.1.8",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
+  },
+  "scripts": {
+    "start": "yarn concurrently \"yarn run app\" \"yarn run service\"",
+    "app": "react-scripts start",
+    "service": "node service",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

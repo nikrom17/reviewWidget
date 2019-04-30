@@ -1,0 +1,39 @@
+.review {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-bottom: 2px solid lightgray;
+}
+
+.reviewHeading {
+    display: flex;
+    flex-direction: row;
+    width:100%;
+}
+
+.reviewComments {
+    width: 50%;
+}
+
+.reviewerDetails {
+    width: 50%;
+}
+
+.minorHeading {
+    font-weight: bold;
+    color: gray;
+
+}
+.starRating {
+    width:150px;
+    height: 50px;
+}
+
+.badge {
+    width: 20px;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}

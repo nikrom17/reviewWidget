@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import * as actions from '../../store/actions';
 import Review from '../../components/review/review';
-import classes from './Reviews.css'
+// import classes from './Reviews.css'
 
 class Reviews extends React.Component {
   componentWillMount() {

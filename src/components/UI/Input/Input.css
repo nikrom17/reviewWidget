@@ -1,8 +1,7 @@
 .Input {
-    width: 100%;
-    padding: 10px 5px;
-    box-sizing: border-box;
-    border-bottom: 1px solid lightgray;
+    display: flex;
+    margin: 1em 1em;
+    align-items: right;
 }
 
 .Label {
@@ -13,17 +12,8 @@
 }
 
 .InputElement {
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     outline: none;
-    display: block;
-    width: 100%;
     border: none;
-    background: transparent;
-    margin-bottom: 30px;
-    margin:8px auto;
-    font: 16px Arial, Helvetica, sans-serif;
 }
 
 .Textarea {
@@ -45,8 +35,6 @@
 }
 
 .Header {
-    font-weight: bold;
-    color: rgb(124, 122, 122);
-    font-size: small;
-    margin: 5px 0
+    margin: 5px 0;
+    width: 100%;
 }

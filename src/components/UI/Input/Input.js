@@ -74,11 +74,9 @@ const input = (props) => {
 
     return (
         <div className={classes.Input}>
-            <label className={classes.Label}>{props.label}</label>
-            <div>
-                {header}
-                {inputElement}
-            </div>
+            {/* <label className={classes.Label}>{props.label}</label> */}
+            {header}
+            {inputElement}
         </div>
     );
 }

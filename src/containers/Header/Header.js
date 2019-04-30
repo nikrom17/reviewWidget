@@ -15,7 +15,7 @@ class Header extends React.Component {
       const reviewCountMsg = `Reviewed by ${this.props.reviewCount} customers`;
       console.log(sortSelectorConfig);
     return (
-      <div className="header">
+      <div className={classes.header}>
           <p>{reviewCountMsg}</p>
           <Input
             key={sortSelectorConfig.id}

@@ -10,7 +10,7 @@ class App extends React.Component {
   }
 
   sortReviews(reviews, sortMethod) {
-    console.log(reviews, sortMethod);
+
     return reviews
   }
 

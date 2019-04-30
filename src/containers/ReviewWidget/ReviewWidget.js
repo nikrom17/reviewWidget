@@ -2,8 +2,7 @@ import * as React from 'react';
 // import { connect } from 'react-redux';
 
 import Header from "../Header/Header";
-// import Reviews from '../Reviews';
-// import footer from '../../components/footer';
+import Reviews from '../Reviews/Reviews';
 // import * as actions from '../../store/actions';
 
 class ReviewWidget extends React.Component {
@@ -17,6 +16,9 @@ class ReviewWidget extends React.Component {
       <div>
         <Header
         reviewCount={this.props.rollup.review_count} />
+        <Reviews 
+          reviews={this.props.reviews}
+        />
       </div>
     )
   }

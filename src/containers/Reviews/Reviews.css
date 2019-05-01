@@ -3,3 +3,8 @@
     flex-direction: row;
     border-bottom: 1px solid lightgray;
 }
+
+.review {
+    padding: 20px 15px;
+    border-bottom: 2px solid lightgray;
+}

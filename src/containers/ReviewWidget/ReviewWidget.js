@@ -3,17 +3,14 @@ import * as React from 'react';
 
 import Header from "../Header/Header";
 import Reviews from '../Reviews/Reviews';
+import classes from "./ReviewWidget.css";
 // import * as actions from '../../store/actions';
 
 class ReviewWidget extends React.Component {
-  componentDidMount() {
-    console.log('ComponentWillMount: ReviewWidget');
-    console.log(this.props);
-  }
 
   render() {
     return (
-      <div>
+      <div className={classes.reviewWidget}>
         <Header
         reviewCount={this.props.rollup.review_count} />
         <Reviews 

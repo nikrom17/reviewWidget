@@ -38,6 +38,24 @@ const sortReviews = (state, action) => {
     });
 };
 
+const vote = (state, action) => {
+    let votes = state.reviews[action.index].metrics[action.voteType];
+    console.log(votes + 1);
+    const updatedReviewMetrics = updateObject(state.reviews[action.index].metrics, {
+        [action.voteType]: votes + 1
+    })
+    console.log(updatedReviewMetrics);
+    const updatedReview = updateObject(state.reviews[action.index], {
+        metrics: updatedReviewMetrics
+    });
+    console.log(updatedReview);
+    console.log(state.reviews);
+    state.reviews[action.index] = updatedReview;
+    return updateObject(state, {
+        reviews: state.reviews
+    });
+};
+
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.FETCH_REVIEWS_START:
@@ -48,6 +66,8 @@ const reducer = (state = initialState, action) => {
             return fetchReviewsFailed(state, action)
         case actionTypes.SORT_REVIEWS:
             return sortReviews(state, action)
+        case actionTypes.VOTE:
+            return vote(state, action)
         default:
             return state;
     }

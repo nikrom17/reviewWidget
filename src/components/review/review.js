@@ -18,38 +18,38 @@ const review = (props) => {
         badge = <VerifiedReviewer className={classes.badge}/>
         badgeText='Verified Reviewer';
     }
+
     return (
         <article className={classes.review}>
-            <div className={classes.reviewHeading}>
-                <StarRating
-                    className={classes.starRating}
-                    rating={props.rating}
-                />
-                <div>{props.headline}</div>
+            <StarRating
+                className={classes.starRating}
+                rating={props.rating}
+            />
+            <h2 className={classes.headline}>{props.headline}</h2>
+            <div className={classes.reviewBlock}>
+                <p className={classes.reviewComments}>
+                    {props.comments}
+                </p>
+                <aside className={classes.reviewerDetails}>
+                    <p>
+                        <span className={classes.minorHeading}>Submitted </span>
+                        <span>{props.created}</span>
+                    </p>
+                    <p>
+                        <span className={classes.minorHeading}>By </span>
+                        <span>{props.nickname}</span>
+                    </p>
+                    <p>
+                        <span className={classes.minorHeading}>From </span>
+                        <span>{props.location}</span>
+                    </p>
+                    <div>
+                        <span className={classes.badgeSpan}>{badge} </span>
+                        <span className={classes.badgeText}>{badgeText}</span>
+                    </div>
+                </aside>
             </div>
-            <p className={classes.reviewComments}>
-                {props.comments}
-            </p>
-            <aside className={classes.reviewerDetails}>
-                <p>
-                    <span className={classes.minorHeading}>Submitted </span>
-                    <span>1 day ago</span>
-                </p>
-                <p>
-                    <span className={classes.minorHeading}>By </span>
-                    <span>{props.nickname}</span>
-                </p>
-                <p>
-                    <span className={classes.minorHeading}>From </span>
-                    <span>{props.location}</span>
-                </p>
-                <p>
-                    <span className={classes.minorHeading}>{badge} </span>
-                    <span>{badgeText}</span>
-                </p>
-            </aside>
         </article>
-        
     );
 };
 

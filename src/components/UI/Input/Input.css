@@ -1,7 +1,9 @@
 .Input {
     display: flex;
-    margin: 1em 1em;
-    align-items: right;
+    padding: 25px 0;
+    float: right;
+    width:100%;
+    justify-content: flex-end;
 }
 
 .Label {
@@ -12,8 +14,8 @@
 }
 
 .InputElement {
-    outline: none;
-    border: none;
+    /* outline: none;
+    border: none; */
 }
 
 .Textarea {
@@ -35,6 +37,7 @@
 }
 
 .Header {
-    margin: 5px 0;
-    width: 100%;
+    margin-right: 8px;
+    font-weight: bold;
+    color: gray;
 }

@@ -41,3 +41,11 @@ export const sortReviews = (event) => {
         sortMethod: event.target.value
     };
 }
+
+export const vote = (index, voteType) => {
+    return {
+        type: actionTypes.VOTE,
+        index: index,
+        voteType: voteType
+    };
+}

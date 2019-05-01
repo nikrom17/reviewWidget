@@ -12,12 +12,12 @@ class Header extends React.Component {
 
 
   render() {
-      const reviewCountMsg = `Reviewed by ${this.props.reviewCount} customers`;
-      console.log(sortSelectorConfig);
+      // const reviewCountMsg = `Reviewed by ${this.props.reviewCount} customers`;
     return (
       <div className={classes.header}>
-          <p>{reviewCountMsg}</p>
+          <p className={classes.title}>Review Display</p>
           <Input
+            className={classes.selector}
             key={sortSelectorConfig.id}
             header={sortSelectorConfig.elementConfig.header}
             elementType={sortSelectorConfig.elementType}

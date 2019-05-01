@@ -11,6 +11,12 @@ const initialState = {
 }
 
 const fetchReviewsSuccess = (state, action ) => {
+    action.productReviewData.reviews.map( (review) => {
+        return (
+            review.metrics.disabled = false,
+            review.metrics.voteType = ''
+        )
+    });
     return updateObject(state, {
         reviews: action.productReviewData.reviews,
         rollup: action.productReviewData.rollup,
@@ -40,19 +46,18 @@ const sortReviews = (state, action) => {
 
 const vote = (state, action) => {
     let votes = state.reviews[action.index].metrics[action.voteType];
-    console.log(votes + 1);
+    let reviews = [...state.reviews];
     const updatedReviewMetrics = updateObject(state.reviews[action.index].metrics, {
-        [action.voteType]: votes + 1
+        [action.voteType]: votes + 1,
+        disabled: true,
+        voteType: action.voteType
     })
-    console.log(updatedReviewMetrics);
     const updatedReview = updateObject(state.reviews[action.index], {
         metrics: updatedReviewMetrics
     });
-    console.log(updatedReview);
-    console.log(state.reviews);
-    state.reviews[action.index] = updatedReview;
+    reviews[action.index] = updatedReview;
     return updateObject(state, {
-        reviews: state.reviews
+        reviews: reviews
     });
 };
 

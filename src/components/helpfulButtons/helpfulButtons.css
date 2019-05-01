@@ -4,7 +4,7 @@
     flex-wrap: wrap;
 }
 
-.wasHelpful {
+.helpfulText {
     width:100%;
     font-weight: bold;
 }
@@ -16,9 +16,25 @@
     margin-top: 8px;
     border: 1px solid gray;
 }
-
-.iconBox:hover {
+.iconBoxHover {
     cursor: pointer;
+}
+
+.iconBoxHover:hover .icon{
+    color:  #7aadff;
+}
+
+.iconBoxHover:hover .votes{
+    color: #7aadff
+}
+
+.selected {
+    background-color: #7aadff;
+}
+
+.iconSelected {
+    background-color:#7aadff; 
+    color: #ffffff;
 }
 
 .votes {

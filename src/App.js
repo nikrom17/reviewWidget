@@ -9,19 +9,19 @@ class App extends React.Component {
     this.props.onFetchReviews();
   }
 
-  sortReviews(reviews, sortMethod) {
-
-    return reviews
-  }
+  mostRecent = (a, b) => b.details.created_date - a.details.created_date
+  oldest = (a, b) => a.details.created_date - b.details.created_date
+  highestRated = (a, b) => b.metrics.rating - a.metrics.rating 
+  lowestRated = (a, b) => a.metrics.rating - b.metrics.rating
+  mostHelpful = (a, b) => b.metrics.helpful_score - a.metrics.helpful_score
 
   render() {
     return (
-      <div>
-        <ReviewWidget
-          reviews={this.sortReviews(this.props.reviews, this.props.sortMethod)}
-          rollup={this.props.rollup}
-          page_id={this.props.page_id} />
-      </div>
+      <ReviewWidget
+        reviews={this.props.reviews.sort(this[this.props.sortMethod])}
+        rollup={this.props.rollup}
+        page_id={this.props.page_id}
+      />
     )
   }
 }

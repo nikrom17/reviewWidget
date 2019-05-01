@@ -7,36 +7,34 @@ import HelpfulButtons from "../../components/helpfulButtons/helpfulButtons";
 import classes from './Reviews.css'
 
 class Reviews extends React.Component {
-  componentWillMount() {
-  }
-
   timeElapsed = (createdDate) => {
     let timeNumber = null;
-    let timeWord = null;
-    const timeElapsed = new Date() - createdDate;
+    let timeUnit = null;
+    const epochTime = new Date() - createdDate;
 
-    if (timeElapsed >= 86400 && timeElapsed <= 2592000) {
-      timeNumber = Math.floor(timeElapsed / 86400);
-      timeWord = timeNumber === 1 ? 'day' : 'days';
-    } else if (timeElapsed > 2592000 && timeElapsed <= 31104000) {
-      timeNumber = Math.floor(timeElapsed / 2592000);
-      timeWord = timeNumber === 1 ? 'month' : 'months';
-    } else if (timeElapsed > 31104000) {
-      timeNumber = Math.floor(timeElapsed / 31104000);
-      timeWord = timeNumber === 1 ? 'year' : 'years';
+    if (epochTime >= 86400 && epochTime <= 2592000) {
+      timeNumber = Math.floor(epochTime / 86400);
+      timeUnit = timeNumber === 1 ? 'day' : 'days';
+    } else if (epochTime > 2592000 && epochTime <= 31104000) {
+      timeNumber = Math.floor(epochTime / 2592000);
+      timeUnit = timeNumber === 1 ? 'month' : 'months';
+    } else if (epochTime > 31104000) {
+      timeNumber = Math.floor(epochTime / 31104000);
+      timeUnit = timeNumber === 1 ? 'year' : 'years';
     } else {
       timeNumber = 1;
-      timeWord = "day";
+      timeUnit = "day";
     }
-    return `${timeNumber} ${timeWord} ago`;
+
+    return `${timeNumber} ${timeUnit} ago`;
   }
 
   render() {
     return (
-      <div>
+      <section>
         {this.props.reviews.map( (review, index) => {
           return (
-            <div className={classes.review}>
+            <article className={classes.review} key={index}>
               <Review
                 comments={review.details.comments}
                 headline={review.details.headline}
@@ -47,21 +45,22 @@ class Reviews extends React.Component {
                 key={review.review_id}
                 rating={review.metrics.rating}
                 metrics={review.metrics}
-                />
+              />
               <HelpfulButtons
                 notHelpfulVotes={review.metrics.not_helpful_votes}
                 helpfulVotes={review.metrics.helpful_votes}
                 vote={this.props.onVote}
+                voteType={review.metrics.voteType}
                 index={index}
+                disabled={review.metrics.disabled}
                 key={index}
-                />
-            </div>
+              />
+            </article>
           )})}
-      </div>
+      </section>
     );
   }
 }
-
 
 const mapStateToProps = state => {
   return {

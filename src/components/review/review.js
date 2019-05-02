@@ -8,6 +8,8 @@ import classes from "./review.css";
 const review = (props) => {
   let badge = null;
   let badgeText = null;
+  const category = ["Submitted ","By ", "From "];
+  const value = [props.created, props.nickname, props.location];
 
   if (props.badges.is_staff_reviewer) {
     badge = <StaffReviewer className={classes.badge}/>;
@@ -34,18 +36,14 @@ const review = (props) => {
           {props.comments}
         </p>
         <aside className={classes.reviewerDetails}>
-          <p>
-            <span className={classes.minorHeading}>Submitted </span>
-            <span>{props.created}</span>
-          </p>
-          <p>
-            <span className={classes.minorHeading}>By </span>
-            <span>{props.nickname}</span>
-          </p>
-          <p>
-            <span className={classes.minorHeading}>From </span>
-            <span>{props.location}</span>
-          </p>
+          {category.map((category, index) => {
+            return (
+              <p key={category}>
+                <span className={classes.minorHeading}>{category}</span>
+                <span>{value[index]}</span>
+              </p>
+            )
+          })}
           <div>
             <span className={classes.badgeSpan}>{badge} </span>
             <span className={classes.badgeText}>{badgeText}</span>
@@ -53,7 +51,6 @@ const review = (props) => {
         </aside>
       </section>
     </Aux>
-    // </article>
   );
 };
 

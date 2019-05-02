@@ -13,10 +13,9 @@ class Header extends React.Component {
         <h3 className={classes.title}>Review Display</h3>
         <Selector
           className={classes.selector}
-          key={sortSelectorConfig.id}
-          header={sortSelectorConfig.elementConfig.header}
-          elementType={sortSelectorConfig.elementType}
-          elementConfig={sortSelectorConfig.elementConfig}
+          description={sortSelectorConfig.description}
+          options={sortSelectorConfig.options}
+          optgroup={sortSelectorConfig.optgroup}
           value={this.props.sortMethod}
           changed={(sortMethod) => this.props.onSortReviews(sortMethod)}
         />

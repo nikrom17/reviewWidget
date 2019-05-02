@@ -1,4 +1,4 @@
-.Input {
+.selector {
     display: flex;
     padding: 25px 0;
     float: right;
@@ -6,37 +6,7 @@
     justify-content: flex-end;
 }
 
-.Label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 8px;
-    width:100%;
-}
-
-.InputElement {
-    /* outline: none;
-    border: none; */
-}
-
-.Textarea {
-    height: 200px;
-}
-
-.Image {
-    max-height: 200px;
-    height: 100%;
-    width: auto;
-}
-
-.InputElement:focus {
-    outline:none;
-}
-
-.Invalid {
-    border: 1px solid red;
-}
-
-.Header {
+.description {
     margin-right: 8px;
     font-weight: bold;
     color: gray;

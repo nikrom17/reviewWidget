@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import ReviewWidget from "./containers/ReviewWidget/ReviewWidget";
+import ReviewWidget from "./components/ReviewWidget/ReviewWidget";
 import * as actions from "./store/actions";
 
 class App extends React.Component {
@@ -29,7 +29,6 @@ class App extends React.Component {
 const mapStateToProps = state => {
   return {
     reviews: state.reviewWidget.reviews,
-    rollup: state.reviewWidget.rollup,
     pageId: state.reviewWidget.page_id,
     sortMethod: state.reviewWidget.sortMethod
   }

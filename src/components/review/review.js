@@ -1,9 +1,17 @@
 import React from "react";
 
 import { StarRating } from "../star-rating";
-import { StaffReviewer, VerifiedBuyer, VerifiedReviewer} from "../icons";
+import { StaffReviewer, VerifiedBuyer, VerifiedReviewer} from "../../assets/icons";
 import Aux from "../../hoc/Aux/Aux";
-import classes from "./review.css";
+import classes from "./Review.css";
+
+/*
+  Individual Review component
+  Includes
+    - star rating
+    - review text
+    - review description
+*/
 
 const review = (props) => {
   let badge = null;
@@ -13,28 +21,30 @@ const review = (props) => {
 
   if (props.badges.is_staff_reviewer) {
     badge = <StaffReviewer className={classes.badge}/>;
-    badgeText='Staff Reviewer';
+    badgeText="Staff Reviewer";
   } else if (props.badges.is_verified_buyer) {
     badge = <VerifiedBuyer className={classes.badge}/>;
-    badgeText='Verified Buyer';
+    badgeText="Verified Buyer";
   } else if (props.badges.is_verified_reviewer) {
-    badge = <VerifiedReviewer className={classes.badge}/>
-    badgeText='Verified Reviewer';
+    badge = <VerifiedReviewer className={classes.badge}/>;
+    badgeText="Verified Reviewer";
   }
 
   return (
     <Aux>
       <header>
-        <StarRating
-          className={classes.starRating}
-          rating={props.rating}
-        />
+        <div className={classes.starRatingContainer}>
+          <StarRating
+            className={classes.starRating}
+            rating={props.rating}
+          />
+          <div className={classes.rating}>
+            <span>{props.rating}</span>
+          </div>
+        </div>
         <h2 className={classes.headline}>{props.headline}</h2>
       </header>
       <section className={classes.reviewBlock}>
-        <p className={classes.reviewComments}>
-          {props.comments}
-        </p>
         <aside className={classes.reviewerDetails}>
           {category.map((category, index) => {
             return (
@@ -49,6 +59,9 @@ const review = (props) => {
             <span className={classes.badgeText}>{badgeText}</span>
           </div>
         </aside>
+        <p className={classes.reviewComments}>
+          {props.comments}
+        </p>
       </section>
     </Aux>
   );

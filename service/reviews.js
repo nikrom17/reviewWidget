@@ -1,6 +1,7 @@
 // generate a random date within the
 const randomDate = (() => {
   var end = new Date().getTime();
+  // generate dates only within the last three years
   var start = end - 60 * 60 * 24 * 30 * 12 * 3;
   // var start = end - 3 * 30 * 60 * 60 * 24 * 1000;
 

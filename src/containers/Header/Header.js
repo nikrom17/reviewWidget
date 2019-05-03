@@ -1,15 +1,20 @@
-import * as React from 'react';
-import { connect } from 'react-redux';
+import * as React from "react";
+import { connect } from "react-redux";
 
-import Selector from '../../components/UI/Selector/Selector';
+import Selector from "../../components/UI/Selector/Selector";
 import { sortSelectorConfig } from "./sortSelectorConfig";
-import * as actions from '../../store/actions';
-import classes from './Header.css'
+import * as actions from "../../store/actions";
+import classes from "./Header.css"
+
+/*
+  Review Header Container
+    - Displays the title and the dropdown menu to sort the reviews
+*/
 
 class Header extends React.Component {
   render() {
     return (
-      <div className={classes.header}>
+      <header className={classes.header}>
         <h3 className={classes.title}>Review Display</h3>
         <Selector
           className={classes.selector}
@@ -19,7 +24,7 @@ class Header extends React.Component {
           value={this.props.sortMethod}
           changed={(sortMethod) => this.props.onSortReviews(sortMethod)}
         />
-      </div>
+      </header>
     )
   }
 }

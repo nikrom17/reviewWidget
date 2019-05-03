@@ -1,5 +1,5 @@
-import * as actionTypes from '../actions/actionTypes';
-import { updateObject } from '../../shared/utility';
+import * as actionTypes from "../actions/actionTypes";
+import { updateObject } from "../../shared/utility";
 
 const initialState = {
     loading: false,
@@ -7,14 +7,14 @@ const initialState = {
     page_id: null,
     rollup: {},
     error: false,
-    sortMethod: 'mostRecent'
+    sortMethod: "mostRecent"
 }
 
 const fetchReviewsSuccess = (state, action ) => {
     action.productReviewData.reviews.map( (review) => {
         return (
             review.metrics.disabled = false,
-            review.metrics.voteType = ''
+            review.metrics.voteType = ""
         )
     });
     return updateObject(state, {
@@ -44,6 +44,14 @@ const sortReviews = (state, action) => {
     });
 };
 
+/*
+    I considered normalizing the state to avoid having it deeply nested.
+    This solution causes a re-rendering of every single review component when a helpful
+    vote is cast, which is not ideal.
+    Normalizing the state would allow me to only update the review component that had
+    the helpful vote cast on it, but would have incrased the complexity of gathering the data
+    from state when rendering the reviews.
+*/
 const vote = (state, action) => {
     let votes = state.reviews[action.index].metrics[action.voteType];
     let reviews = [...state.reviews];

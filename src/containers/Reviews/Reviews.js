@@ -1,40 +1,56 @@
-import * as React from 'react';
-import { connect } from 'react-redux';
+import * as React from "react";
+import { connect } from "react-redux";
 
-import * as actions from '../../store/actions';
-import Review from '../../components/review/review';
-import HelpfulButtons from "../../components/helpfulButtons/helpfulButtons";
-import classes from './Reviews.css'
+import * as actions from "../../store/actions";
+import Review from "../../components/Review/Review";
+import HelpfulButtons from "../HelpfulButtons/HelpfulButtons";
+import classes from "./Reviews.css"
+
+/*
+  Reviews Container
+    - holds all the reviews displayed on the page
+*/
 
 class Reviews extends React.Component {
+
   timeElapsed = (createdDate) => {
+  /*
+    Converts epoch time to days, months, years
+    I assume shortest time frame for a new review to be displayed is 1 day.
+    Returns text to be displayed on the page for the "Submitted" category.
+  */
     let timeNumber = null;
     let timeUnit = null;
     const epochTime = new Date() - createdDate;
 
     if (epochTime >= 86400 && epochTime <= 2592000) {
       timeNumber = Math.floor(epochTime / 86400);
-      timeUnit = timeNumber === 1 ? 'day' : 'days';
+      timeUnit = timeNumber === 1 ? "day" : "days";
     } else if (epochTime > 2592000 && epochTime <= 31104000) {
       timeNumber = Math.floor(epochTime / 2592000);
-      timeUnit = timeNumber === 1 ? 'month' : 'months';
+      timeUnit = timeNumber === 1 ? "month" : "months";
     } else if (epochTime > 31104000) {
       timeNumber = Math.floor(epochTime / 31104000);
-      timeUnit = timeNumber === 1 ? 'year' : 'years';
+      timeUnit = timeNumber === 1 ? "year" : "years";
     } else {
       timeNumber = 1;
       timeUnit = "day";
     }
-
     return `${timeNumber} ${timeUnit} ago`;
   }
 
   render() {
+    let error = null;
+    if (this.props.error) {
+      error = <div className= {classes.error}>Unable to load reviews :(</div>
+    }
+    
     return (
       <section>
+        {error}
         {this.props.reviews.map( (review, index) => {
           return (
-            <article className={classes.review} key={index}>
+            <article className={classes.review} key={index} data-id={review.review_id}>
               <Review
                 comments={review.details.comments}
                 headline={review.details.headline}
@@ -44,7 +60,6 @@ class Reviews extends React.Component {
                 badges={review.badges}
                 key={review.review_id}
                 rating={review.metrics.rating}
-                metrics={review.metrics}
               />
               <HelpfulButtons
                 notHelpfulVotes={review.metrics.not_helpful_votes}
@@ -65,8 +80,8 @@ class Reviews extends React.Component {
 const mapStateToProps = state => {
   return {
     reviews: state.reviewWidget.reviews,
-    rollout: state.reviewWidget.rollout,
-    sortMethod: state.reviewWidget.sortMethod
+    sortMethod: state.reviewWidget.sortMethod,
+    error: state.reviewWidget.error
   }
 }
 

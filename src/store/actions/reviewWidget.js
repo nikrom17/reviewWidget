@@ -1,4 +1,4 @@
-import * as actionTypes from './actionTypes';
+import * as actionTypes from "./actionTypes";
 
 export const fetchReviewsStart = () => {
     return {
@@ -23,13 +23,12 @@ export const fetchReviewsFailed = (error) => {
 export const fetchReviews = () => {
     return dispatch => {
         dispatch(fetchReviewsStart());
-        fetch('http://localhost:5000/reviews')
+        fetch("http://localhost:5000/reviews")
             .then(response => response.json())
             .then(data => {
                     dispatch(fetchReviewsSuccess(data))
             })
             .catch(error => {
-                console.log(error);
                 dispatch(fetchReviewsFailed(error));
             });
     };

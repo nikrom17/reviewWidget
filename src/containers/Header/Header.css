@@ -8,14 +8,12 @@
 .title {
     font-size: 35px;
     width: 100%;
-    margin: auto;
+    margin: 5px;
 }
-
 
 .selector {
     width: 50%;
 }
-
 
 @media screen and (min-width: 650px) {
     .header {
@@ -25,6 +23,10 @@
         align-content: center;
         height: 60px;
         padding-left: 15px;
+    }
+
+    .title {
+        margin: auto;
     }
 
     .selector {

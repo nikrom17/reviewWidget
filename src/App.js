@@ -5,7 +5,7 @@ import ReviewWidget from "./components/ReviewWidget/ReviewWidget";
 import * as actions from "./store/actions";
 
 class App extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.onFetchReviews();
   }
 

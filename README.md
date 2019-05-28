@@ -1,8 +1,9 @@
+
 # Review Display
 
 The goal of this excercise is to build a simple version of a review display widget commonly found on retailer product detail pages.
 
-The widget will primarily fetch and render a list of reviews. It will allow users to sort reviews, and vote for helpful or unhelpful reviews. The widget must be implemented using [React](https://reactjs.org/), but you are free to use any other dependencies.
+The widget will primarily fetch and render a list of reviews. It will allow users to sort reviews, and vote for helpful or unhelpful reviews.
 
 The starter project was bootstrapped with [create-react-app](https://github.com/facebook/create-react-app), usage details can be found [here](CREATE_REACT_APP_README.md). The starter project includes a webservice that returns review data, as well as some helpful components.
 
@@ -32,27 +33,6 @@ yarn add ${pkg-name}
 | `start`   | Concurrently starts dev server and review service. **Your solution will be evaluated using this command.** |
 | `app`     | Starts webpack dev server on port 3000                                                                     |
 | `service` | Starts review service on port 5000                                                                         |
-
-## Submitting your solution
-
-* Change the `name` field in the `package.json` to `${first-name}-${lastname}`. For example, if your name is Jane Doe your package.json will look like following:
-
-```js
-{
-  name: "jane-doe",
-  version: "1.0.0"
-}
-```
-
-* Run `yarn pack` inside the package, the will generate a zipped tarball. This tarball is the file you will be submitting. In the case of the example above, the file generated will be `jane-doe-v1.0.0.tgz`.
-
-To evaluate your solution we will unzip the tarball and then run `yarn start` inside the folder.
-
-## Notes
-
-* While we've given you a week to complete this project, we estimate that you will not need more than 8 hours of work to achieve all of the requirements.
-* Perfect is the enemy of good. Don't try too hard to impress us, you can always leave notes detailing improvements/extensions.
-* We appreciate your time commitment and we promise to provide feedback on your submission.
 
 ## Required functionality
 
